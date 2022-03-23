@@ -14,9 +14,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>        
         <StackPanel Orientation="Horizontal" Height="36">
-            <TextBlock Text="Фильтр:" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock Text="Filter:" VerticalAlignment="Center" Margin="5"/>
             <TextBox Text="{Binding FilterText,UpdateSourceTrigger=PropertyChanged}" Width="328" Margin="5" />
-            <Button Click="Button_Click" HorizontalAlignment="Right" Content="Экспорт файла в MySQL" Height="26" Margin="5" Width="171"/>
+            <Button Click="Button_Click" HorizontalAlignment="Right" Content="Export to MySQL" Height="26" Margin="5" Width="171"/>
         </StackPanel>
         <DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding Items}" AutoGenerateColumns="False" RowBackground="WhiteSmoke" AlternatingRowBackground="LightGray">
             <DataGrid.Columns>
