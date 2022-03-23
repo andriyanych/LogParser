@@ -1,0 +1,37 @@
+﻿<Window x:Class="LogParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogParser"
+        mc:Ignorable="d"
+        Title="LogAnalyzer" Height="860" Width="1280" Visibility="Visible">
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>        
+        <StackPanel Orientation="Horizontal" Height="36">
+            <TextBlock Text="Фильтр:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding FilterText,UpdateSourceTrigger=PropertyChanged}" Width="328" Margin="5" />
+            <Button Click="Button_Click" HorizontalAlignment="Right" Content="Экспорт файла в MySQL" Height="26" Margin="5" Width="171"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding Items}" AutoGenerateColumns="False" RowBackground="WhiteSmoke" AlternatingRowBackground="LightGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Host" Binding="{Binding Host}" Width="140"/>
+                <DataGridTextColumn Header="Lid" Binding="{Binding Lid}" Width="30"/>
+                <DataGridTextColumn Header="Uid" Binding="{Binding Uid}" Width="30"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="auto"/>
+                <DataGridTextColumn Header="Type_request" Binding="{Binding Type_request}" Width="75"/>
+                <DataGridTextColumn Header="Request" Binding="{Binding Request}" Width="440"/>
+                <DataGridTextColumn Header="Protocol" Binding="{Binding Proto}" Width="55"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="50"/>
+                <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="70"/>
+                <DataGridTextColumn Header="Referer" Binding="{Binding Referer}" Width="140"/>
+                <DataGridTextColumn Header="Agent" Binding="{Binding Agent}" Width="auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
