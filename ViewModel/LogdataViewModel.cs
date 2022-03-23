@@ -20,7 +20,6 @@ namespace LogParser.ViewModel
             set { SetValue(FilterTextProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for FilterText.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty FilterTextProperty =
             DependencyProperty.Register("FilterText", typeof(string), typeof(LogdataViewModel), new PropertyMetadata("", FilterText_Changed));
 
@@ -40,20 +39,13 @@ namespace LogParser.ViewModel
             set { SetValue(ItemsProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ItemsProperty =
             DependencyProperty.Register("Items", typeof(ICollectionView), typeof(LogdataViewModel), new PropertyMetadata(null));
 
-        //public LogdataViewModel(string FileName)
-        //{
-        //    //Items = CollectionViewSource.GetDefaultView(Logdata.GetDatafromFile(FileName));
-        //    Items = CollectionViewSource.GetDefaultView(Logdata.GetDatafromDB());
-        //    Items.Filter = FilterLogdata;
-        //}
+       
 
         public LogdataViewModel()
         {
-            //Items = CollectionViewSource.GetDefaultView(Logdata.GetDatafromFile(FileName));
             Items = CollectionViewSource.GetDefaultView(Logdata.GetDatafromDB());
             Items.Filter = FilterLogdata;
         }
