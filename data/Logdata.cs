@@ -103,48 +103,5 @@ namespace LogParser.data
                 }
             }
         }
-        public static Logdata[] GetLogfromFile(string filename)
-        {
-            try
-            {
-                int count = File.ReadAllLines(filename).Length;
-                string[] strings = File.ReadAllLines(filename);
-                string Line;
-                Logdata[] result = new Logdata[count];
-                for (int i = 0; i < count; i++)
-                {
-                    if (strings[i] != null && strings[i].IndexOf("]") > 0)
-                    {
-                        Line = strings[i];
-                        string[] data = Line.Split(';');
-                        result[i] = new Logdata()
-                        {
-                            Host = data[0],
-                            Lid = data[1],
-                            Uid = data[2],
-                            Time = data[3],
-                            Type_request = data[4],
-                            Request = data[5],
-                            Status = data[6],
-                            Size = data[7],
-                            Referer = data[8],
-                            Agent = data[9],
-                        };
-                    };
-
-                }
-                return result;
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("Файл не существует");
-                return null;
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-                return null;
-            }
-        }
     }
 }
