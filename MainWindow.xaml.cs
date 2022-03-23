@@ -18,19 +18,10 @@ using System.Windows.Shapes;
 
 namespace LogParser
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            //SizeChanged += (o, e) =>
-            //{
-            //    var r = SystemParameters.WorkArea;
-            //    Left = r.Right - ActualWidth;
-            //    Top = r.Bottom - ActualHeight;
-            //};
             InitializeComponent();
             Loaded += MainWindow_Loaded;
         }
@@ -60,8 +51,6 @@ namespace LogParser
                 
                 Logdata.FromFileToBase(filename);
                 DataContext = new LogdataViewModel();
-                //string[] lines = File.ReadAllLines(@filename);
-                //_ = MessageBox.Show("Выбран файл: " + filename);
             }
         }
     }
